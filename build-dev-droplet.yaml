@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: true
+  vars:
+    doc_root: /home/{$USER}
+  tasks:
+    - name: Update apt
+      apt: update_cache=yes
+
+    - name: Set the git config global values
+    - name: Validate correct setup git config --list
+    - name: node
+    - name: python
+    - name: vscode
+    - name: docker 
+    - name: doctl 
+    - name: gh 
+    - name: helm 
+    - name: kind 
+    - name: kubectl
+    - name: ansible
+    - name: docker-ce docker-ce-cli containerd.io
+    - name: 
+    - name: 
+    - name: 
+
+    - name: Create custom document root
+      file: path={{ doc_root }} state=directory owner=www-data group=www-data
+
+    - name: Set up HTML file
+      copy: src=index.html dest={{ doc_root }}/index.html owner=www-data group=www-data mode=0644
+
+    - name: Set up Apache virtual host file
+      template: src=vhost.tpl dest=/etc/apache2/sites-available/000-default.conf
+      notify: restart apache
+  handlers:
+    - name: restart apache
+      service: name=apache2 state=restarted
+

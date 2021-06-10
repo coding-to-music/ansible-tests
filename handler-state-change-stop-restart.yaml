@@ -1,0 +1,6 @@
+handlers:
+    - name: restart apache
+      service: name=apache2 state=restarted
+
+    - name: other handler
+      service: name=other state=restarted

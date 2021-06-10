@@ -1,0 +1,4 @@
+- name: Change default Apache virtual host
+  template:
+    src: vhost.tpl
+    dest: /etc/apache2/sites-available/000-default.conf
